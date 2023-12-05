@@ -3,6 +3,6 @@ from django.db import models
 # Create your models here.
 class Detections (models.Model):
     id = models.AutoField(primary_key=True)
-    ref_img = models.TextField()
+    ref_img = models.FilePathField()
     placa = models.TextField()
     date = models.DateField(auto_now=True)

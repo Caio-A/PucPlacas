@@ -76,24 +76,16 @@
               </ul>
             </nav>
             <div style="overflow-y: scroll; max-height: 500px;" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-              <h4 id="ultima-deteccao">First heading</h4>
-              <p>...</p>
-              <h4 id="scrollspyHeading2">Second heading</h4>
-              <p>...</p>
-              <h4 id="scrollspyHeading3">Third heading</h4>
-              <p>...</p>
-              <h4 id="scrollspyHeading4">Fourth heading</h4>
-              <p>...</p>
-              <h4>Fifth heading</h4>
-              <p>...</p>
-              <h4>Fifth heading</h4>
-              <p>...</p>
-              <h4>Fifth heading</h4>
-              <p>...</p>
-              <h4>Fifth heading</h4>
-              <p>...</p>
-              <h4 id="primeira-deteccao">Fifth heading</h4>
-              <p>...</p>
+              {% for detection in detections %}
+                <div class="card" style="width: 96%;">
+                  <img src=/detections/{{detection.ref_img}} class="card-img-top" alt="imagem detectada">
+                  <div class="card-body">
+                    <h5 class="card-title">{{detection.placa}}</h5>
+                    <p class="card-text">{{detection.date}}</p>
+                  </div>
+                </div>
+              {% endfor %}
+              
             </div>
           </div>
         </div>

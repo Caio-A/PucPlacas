@@ -12,11 +12,11 @@ import datetime
 car_classifier = cv2.CascadeClassifier('./static/src/cars.xml')
 
 #Criar as views 
-
 #classe para fazer a detecção de texto em imagens ja segmentadas
 class AwsDetect():
     def __init__(self):
         #threading para fazer assincronamente enquanto o servidor estiver ligado
+        
         threading.Thread(target=self.recursivo, args=()).start()
 
     def guardanobanco(placa, arquivo):
@@ -32,6 +32,7 @@ class AwsDetect():
         secret_access_key = "KcBUtCsQhJYrKBoFo2xsDn3h6Dd8NRK1i1uxQNG/"
         client = boto3.client('rekognition' , region_name='us-east-1', aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key)
         while loop == True:
+            db = Detections()
             arquivos = os.listdir('./')
             i = 0
             #percorre todas as detecções feitas pelo opencv
@@ -69,7 +70,8 @@ class AwsDetect():
 
 #template home
 def home(request):
-    return render(request, 'home.html')
+    detection = {'detections':Detections.objects.all()}
+    return render(request, 'home.html', detection)
     
 #template camera
 def camera(cam):
