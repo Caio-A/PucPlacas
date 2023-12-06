@@ -70,7 +70,8 @@ class AwsDetect():
 
 #template home
 def home(request):
-    detection = {'detections':Detections.objects.all()}
+    detection = {'detections':Detections.objects.all(),
+                 'loop': True}
     return render(request, 'home.html', detection)
     
 #template camera

@@ -77,7 +77,7 @@
             </nav>
             <div style="overflow-y: scroll; max-height: 500px;" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
               {% for detection in detections %}
-                <div class="card" style="width: 96%;">
+                <div class="card" style="width: 96%;margin-bottom: 2%;">
                   <img src=/detections/{{detection.ref_img}} class="card-img-top" alt="imagem detectada">
                   <div class="card-body">
                     <h5 class="card-title">{{detection.placa}}</h5>
