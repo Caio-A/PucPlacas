@@ -28,8 +28,8 @@ class AwsDetect():
     def recursivo(self):
         loop = 1
         #credenciais aws 
-        access_key_id = "AKIAYGCRKJCJOKMJLVGI"
-        secret_access_key = "KcBUtCsQhJYrKBoFo2xsDn3h6Dd8NRK1i1uxQNG/"
+        access_key_id = "your_key"
+        secret_access_key = "your_key"
         client = boto3.client('rekognition' , region_name='us-east-1', aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key)
         while loop == True:
             db = Detections()
